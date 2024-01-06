@@ -1,0 +1,59 @@
+3. Create an university enrollment system with the following characteristics:
+* 		The system has a login with a username and password.
+* 		Upon logging in, a menu displays the available programs: Computer Science, Medicine, Marketing, and Arts.
+* 		The user must input their first name, last name, and chosen program.
+* 		Each program has only 5 available slots. The system will store the data of each registered user, and if it exceeds the limit, it should display a message indicating the program is unavailable.
+* 		If login information is incorrect three times, the system should be locked.
+* 		The user must choose a campus from three cities: London, Manchester, Liverpool.
+* 		In London, there is 1 slot per program; in Manchester, there are 3 slots per program, and in Liverpool, there is 1 slot per program.
+* 		If the user selects a program at a campus that has no available slots, the system should display the option to enroll in the program at another campus.
+
+// Declare variables
+string username, password
+program = ""
+slots = ""
+campus = ""
+loginAttemps = 0
+
+// Login loop
+while true
+    write "Enter your username"
+    read username
+    write "Enter your password"
+    read password
+
+    // Verify credentials
+    if verifyCredentials (username, password)
+        write "Login successful"
+        break
+    else
+        loginAttemps++
+        write "Wrong credentials"
+        if loginAttemps >= 3
+            write "You are blocked"
+            exit
+    end if
+end while
+
+// Program loop
+while true
+    write "Select available programs"
+    write "Computer Science"
+    write "Medicine"
+    write "Marketing"
+    write "Arts"
+
+    write "Enter your first name"
+    read first name
+    write "Enter your last name"
+    read last name
+    write "Enter your program"
+    read program
+
+    write "Select your campus"
+    write "London"
+    write "Manchester"
+    write "Liverpool"
+    read campus
+
+end while

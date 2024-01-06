@@ -1,0 +1,73 @@
+2. Create a currency converter between CLP, ARS, USD, EUR, TRY, GBP with the following features:
+* 		The user must choose their initial currency and the currency they want to exchange to.
+* 		The user can choose whether or not to withdraw their funds. If they choose not to withdraw, it should return to the main menu.
+* 		If the user decides to withdraw the funds, the system will charge a 1% commission.
+* 		Set a minimum and maximum amount for each currency, it can be of your choice.
+* 		The system should ask the user if they want to perform another operation. If they choose to do so, it should restart the process; otherwise, the system should close.
+
+// Declare variables
+commission = 1%
+minAmount = 2
+maxAmount = 6
+initialCurrency = ""
+destinationCurrency = ""
+amount = 0
+commissionAmount = 0
+
+// Select initial currency
+while true
+    write "Select your initial currency"
+    write "CLP"
+    write "ARS"
+    write "USD"
+    write "EUR"
+    write "TRY"
+    write "GBP"
+    read initialCurrency
+
+    // Select destination currency
+    write "Select your destination currency"
+    write "CLP"
+    write "ARS"
+    write "USD"
+    write "EUR"
+    write "TRY"
+    write "GBP"
+    read destinationCurrency
+    
+    write "Do you want to withdraw " + initialCurrency + " to " + destinationCurrency
+    write "Yes"
+    write "No"
+
+    choice = ""
+    read choice
+
+    if choice == "Yes"
+        write "How much do you want to withdraw?"
+        read amount
+        if amount < minAmount
+            write "It has to be higher than " + minAmount
+            Return to menu
+        end if
+        if amount > maxAmount
+            write "It has to be lower than " + maxAmount
+            Return to menu
+        end if
+        
+        // We calculate the commission
+        commissionAmount = amount * commission
+        totalAmount = amount + commissionAmount
+        withdraw(initialCurrency, destinationCurrency, totalAmount)
+        write "Do you want to make another transaction?"
+        write "Yes"
+        write "No"
+
+        choice2 = ""
+        read choice2
+
+        if choice == "No"
+            write "Thanks for using our services"
+            exit
+        end if
+    end if
+end while
