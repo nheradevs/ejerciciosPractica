@@ -32,6 +32,7 @@ while true
         if loginAttemps >= 3
             write "You are blocked"
             exit
+        end if
     end if
 end while
 
@@ -57,3 +58,5 @@ while true
     read campus
 
 end while
+
+// DEJÉ EL EJERCICIO HASTA ACÁ PORQUE SE ME COMPLICÓ DESARROLLAR LA PARTE DE SLOTS

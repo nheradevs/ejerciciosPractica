@@ -1,0 +1,78 @@
+1. Create an online banking system with the following features:
+
+* Users must be able to log in with a username and password.
+* If the user enters the wrong credentials three times, the system must lock them out.
+* The initial balance in the bank account is $2000.
+* The system must allow users to deposit, withdraw, view, and transfer money.
+* The system must display a menu for users to perform transactions.
+
+// Declare variables
+string username, password
+loginAttemps = 0
+balance = 2000
+menu = ""
+
+// Login loop
+while true
+    write "Enter your username"
+    read username
+    write "Enter your password"
+    read password
+
+        // Verify credentials
+        if verifyCredentials (username, password)
+            write "Login successful"
+            break
+        else
+            loginAttemps++
+            write "Wrong credentials"
+            if loginAttemps >=3
+                write "You are blocked"
+                exit
+            end if
+        end if
+end while
+
+// Program loop
+while true
+    write "This is your balance"
+    write balance + "$"
+
+    write "Select your option"
+    write "1. Deposit"
+    write "2. Withdraw"
+    write "3. View"
+    write "4. Transfer money"
+    read menu
+end while
+
+ // User choice
+    switch choice
+        option 1:
+            write "Enter amount to deposit:"
+            real depositAmount
+            read depositAmount
+            balance = balance + depositAmount
+            write "Deposit successful! New balance: $" + balance
+        option 2:
+            write "Enter amount to withdraw:"
+            real withdrawAmount
+            read withdrawAmount
+            if withdrawAmount > balance
+                write "Insufficient funds"
+            else
+                balance = balance - withdrawAmount
+                write "Withdrawal successful! New balance: $" + balance
+            end if
+        option 3:
+            write "Your balance is: $" + balance
+        option 4:
+            write "Enter destiny account"
+            read destinyAccount
+            write "Enter amount"
+            read amount
+            // Transfer
+            transfer(destinyAccount, amount)
+        default:
+            write "Invalid choice"
+    end switch
