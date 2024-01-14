@@ -1,0 +1,106 @@
+5. Turkish Airlines has just launched an offer to travel among the following destinations: Turkey, Greece, Lebanon, Spain, and Portugal. Develop an algorithm with the following characteristics:
+It must have a login and validate the data; after the third failed attempt, it should be locked.
+The user must choose the origin country and the destination country, the flight date, and the condition: Economy or First Class.
+The user must choose if they want to check an additional piece of luggage into the hold.
+Hand luggage is free of charge.
+The user must purchase both the outbound and return tickets.
+The user can choose their preferred meal: Regular, Vegetarian, Kosher.
+The program must collect the following data: Name, country of origin, passport, and destination country.
+Upon completing the process, the system will display everything the user has previously chosen along with their information. 
+The system will provide the option to confirm the reservation or cancel it. If the user chooses YES, a confirmation message will appear. If not, it will return to the main menu.
+
+// Declare variables
+string username, password
+loginAttemps = 0
+originCountry = ""
+destinationCountry = ""
+id = ""
+flightDate = ""
+returnDate = ""
+condition = ""
+meal = ""
+name = ""
+price = $500
+additionalLuggage = $100
+
+// Login to system
+while loop
+    write "Put your username"
+    read username
+    write "Put your password"
+    read password
+
+    // Login verification
+        if loginVerification (username, password)
+            write "Login successful"
+            break
+        else
+            loginAttemps++
+            write "Wrong credentials"
+            if loginAttemps >=3
+                write "You are blocked"
+                exit
+            end if
+        end if
+end while
+
+// Main loop
+while loop
+    write "Your Name"
+    read name
+    write "Your country of origin"
+    read originCountry
+    write "Your passport number"
+    read id
+
+    // For destination country
+    write "Select your destination country"
+    write "Turkey"
+    Write "Greece"
+    write "Lebanon"
+    write "Spain"
+    write "Portugal"
+    read destinationCountry
+
+    // Ask the client about his flight
+    write "When do you want to travel?"
+    read flightDate
+    write "When do you want to return?"
+    read returnDate
+    write "Select your flight class"
+    write "Economy"
+    write "First Class"
+    read condition
+
+    // Additinal luggage
+    write "Do you want to add an additional luggage? Because hand luggage is free of charge"
+    write "yes"
+    write "no"
+
+    choice2 = ""
+    read choice2
+    
+    if choice2 == "yes"
+        amount += additionalLuggage
+    end if
+
+    // Preferred meal
+    write "Select your preferred meal"
+    write "Regular"
+    write "Vegetarian"
+    write "Kosher"
+    read meal
+
+    // Display flight information
+    write "Do you want to confirm your reservation?"
+    write "yes"
+    write "no"
+
+    choice2 = ""
+    read choice 2
+
+    if choice2 == "yes"
+        write "Your purchase is completed!"
+        exit
+    end if
+end while

@@ -1,0 +1,71 @@
+3. The Valencia Hospital is developing an application to manage appointments. Design an algorithm for this application with the following features:
+
+It must have a login and validate the data; after the third failed attempt, it should be locked.
+The user can schedule an appointment for: General Medicine, Emergency Care, Clinical Analysis, Cardiology, Neurology, Nutrition, Physiotherapy, Traumatology, and Internal Medicine.
+There are 3 doctors for each specialty.
+The user can only book one appointment per specialist. An error message should be displayed if the user tries to choose two appointments with the same doctor or the same specialty. As a developer, you can choose the doctors' names.
+The maximum limit for appointments, in general, is 3.
+Upon selecting a specialty, it will display if the user prefers a morning or afternoon appointment and show available hours. As a developer, you can choose the hours.
+Display available specialists.
+The user can choose their preferred specialist.
+The basic process is: Login -> Choose specialty -> Choose doctor -> Choose time slot.
+
+// Declare variables
+string username, password
+loginAttempts = 0
+specialty = ""
+doctor = ""
+preferredHour = ""
+
+// Login loop
+while true
+    write "Enter your username"
+    read username
+    write "Enter your password"
+    read password
+
+// Verify credentials
+        if verifyCredentials (username, password)
+            write "Login successful"
+            break
+        else
+            loginAttemps++
+            write "Wrong credentials"
+            if loginAttemps >=3
+                write "You are blocked"
+                exit
+            end if
+        end if
+end while
+
+// Choosing an appointment
+while true
+    write "Select a specialty"
+    write "General Medicine"
+    write "Emergency Care"
+    write "Clinical Analysis"
+    write "Cardiology"
+    write "Neurology"
+    write "Nutrition"
+    write "Physiotherapy"
+    write "Traumatology"
+    write "Internal Medicine"
+    read specialty
+
+    // Selecting a doctor
+    write "Select a doctor"
+    write "Doctor 1"
+    write "Doctor 2"
+    write "Doctor 3"
+    read doctor
+
+    // Selecting time
+    write "Select the time for your appointment"
+    write "morning"
+    write "afternoon"
+    write "Input an hour"
+    read preferredHour
+
+end while
+
+// THIS IS ONLY A BASIC PROCESS
