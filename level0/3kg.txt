@@ -59,4 +59,4 @@ while true
 
 end while
 
-// I need to finish this exercise, so I'm going to use JavaScript.
+// DEJÉ EL EJERCICIO HASTA ACÁ PORQUE SE ME COMPLICÓ DESARROLLAR LA PARTE DE SLOTS
