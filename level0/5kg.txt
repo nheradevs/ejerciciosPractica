@@ -35,5 +35,4 @@ while true
 end while
 
 
-
-// ME FALTA TERMINAR ESTE EJERCICIO
+// I need to finish this exercise, so I'm going to use JavaScript.
